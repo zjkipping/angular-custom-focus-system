@@ -1,0 +1,75 @@
+.card5-content {
+  padding: 20px;
+  width: calc(250px - 40px);
+  height: calc(100% - 40px);
+  display: grid;
+  grid-template-rows: 75px 1fr 50px 50px;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+
+  .card5-header {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 10px;
+
+    grid-template-areas:
+      'circle top-rectangle'
+      'circle bottom-rectangle';
+
+    .circle-container {
+      grid-area: circle;
+      display: grid;
+      place-items: center;
+      height: 100%;
+      width: 100%;
+
+      .circle {
+        background: lightgrey;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    .rectangle {
+      background: lightgrey;
+      &.top {
+        grid-area: top-rectangle;
+      }
+
+      &.bottom {
+        grid-area: bottom-rectangle;
+      }
+    }
+  }
+
+  .card5-text {
+    p {
+      &.large {
+        font-size: 24px;
+      }
+
+      &.medium {
+        font-size: 16px;
+      }
+
+      &.small {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .card5-button {
+    border-radius: 10px;
+    border: 2px solid lightgrey;
+    background: white;
+
+    &.filled {
+      background: lightgrey;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<div class="card no-expand-change" appRotaryControl #card5Group="appRotaryControl" [rcStartWith]="confirmButtom">
+  <app-expanding-card [expanded]="card5Group.isSelected">
+    <app-expanding-card-preview>
+      <div class="card-preview">5</div>
+    </app-expanding-card-preview>
+    <app-expanding-card-content>
+      <div class="card5-content">
+        <div class="card5-header">
+          <div class="circle-container">
+            <div class="circle"></div>
+          </div>
+          <div class="rectangle top"></div>
+          <div class="rectangle bottom"></div>
+        </div>
+        <div class="card5-text">
+          <p class="large">The quick brown fox jumps over the lazy dog</p>
+          <p class="medium">The quick brown fox jumps over the lazy dog</p>
+          <p class="small">The quick brown fox jumps over the lazy dog</p>
+        </div>
+        <button class="card5-button" appRotaryControl>CANCEL</button>
+        <button class="card5-button filled" appRotaryControl #confirmButtom="appRotaryControl">CONFIRM</button>
+      </div>
+    </app-expanding-card-content>
+  </app-expanding-card>
+</div>

@@ -1,0 +1,108 @@
+.grid-container {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  column-gap: 50px;
+  align-items: center;
+}
+
+.card1-content {
+  padding: 20px;
+  width: calc(250px - 40px);
+  height: calc(100% - 40px);
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
+
+  .card1-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 40px);
+    place-items: center;
+    width: 100%;
+    row-gap: 20px;
+
+    .card1-item {
+      background: lightgrey;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .square {
+        height: 20px;
+        width: 20px;
+        background: white;
+
+        margin-right: 10px;
+
+        &.selected {
+          background: rgb(0, 158, 0);
+        }
+      }
+    }
+  }
+}
+
+.card2-content {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+  width: calc(600px - 40px);
+  height: calc(100% - 40px);
+
+  .card2-item {
+    padding: 25px;
+    margin: 25px;
+    border-radius: 5px;
+    height: calc(100% - 100px - 50px);
+    width: calc(100% - 100px);
+    background: green;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+  }
+}
+
+.card3-content {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 200px);
+  place-items: center;
+  width: calc(250px - 40px);
+  height: calc(100% - 40px);
+  row-gap: 50px;
+  overflow-y: auto;
+
+  .card3-item {
+    background: grey;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.card4-content {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+  width: calc(600px - 40px);
+  height: calc(100% - 40px);
+
+  .card4-item {
+    padding: 25px;
+    margin: 25px;
+    border-radius: 5px;
+    height: calc(100% - 100px);
+    background: rgb(185, 185, 185);
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+  }
+}

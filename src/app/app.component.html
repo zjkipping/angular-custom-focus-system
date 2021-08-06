@@ -1,0 +1,96 @@
+<p>Navigate with Command & Period keys, select focused item with Space, Foward Slash (/) to back out of a selection</p>
+<p>Also responds & follows along with normal web accessability commands (Tab, Space, Enter, Escape)</p>
+<div class="grid-container" appRotaryControl>
+  <div class="card no-expand-change" appRotaryControl #card1Group="appRotaryControl">
+    <app-expanding-card [expanded]="card1Group.isSelected">
+      <app-expanding-card-preview>
+        <div class="card-preview">1</div>
+      </app-expanding-card-preview>
+      <app-expanding-card-content>
+        <div class="card1-content">
+          <div class="card1-grid">
+            <div class="card1-item" appRotaryControl (click)="isCard1Item1Selected = !isCard1Item1Selected">
+              <div class="square" [class.selected]="isCard1Item1Selected"></div>
+            </div>
+            <div class="card1-item" appRotaryControl (click)="isCard1Item2Selected = !isCard1Item2Selected">
+              <div class="square" [class.selected]="isCard1Item2Selected"></div>
+            </div>
+            <!-- Have to do the (openedChange)="selectOpenChanged($event, selectRC)" due to weirdness on mat-select -->
+            <!-- This unfortunately causes a little bit of a flicker with the focus as the focus has to be re-set -->
+            <!-- This could look a little more orderly with a custom select component that is more aware of the appRotaryControl directive -->
+            <mat-select placeholder="Favorite color" #selectInput appRotaryControl #selectRC="appRotaryControl"
+              rcDisableTraversalExit rcOrderingMode="manual" (rcEscapeAction)="selectInput.close()"
+              (openedChange)="selectOpenChanged($event, selectRC)">
+              <mat-option *ngFor="let option of selectOptions; index as i" [value]="option.value" appRotaryControl
+                [rcAutoFocus]="selectInput.value === option.value" [rcIndex]="i">
+                {{option.display}}</mat-option>
+            </mat-select>
+            <input type="range" step="10" min="0" max="100" #rangeInput appRotaryControl rcSelectHoldsFocus (rcPreviousAction)="rangeInput.stepDown()" (rcNextAction)="rangeInput.stepUp()">
+            <input type="checkbox" class="card1-item" appRotaryControl>
+          </div>
+        </div>
+      </app-expanding-card-content>
+    </app-expanding-card>
+  </div>
+
+  <div class="card" appRotaryControl #card2Group="appRotaryControl" rcOrderingMode="manual">
+    <app-expanding-card [expanded]="card2Group.isSelected">
+      <app-expanding-card-preview>
+        <div class="card-preview">2</div>
+      </app-expanding-card-preview>
+      <app-expanding-card-content>
+        <div class="card2-content">
+          <div class="card2-item" appRotaryControl [rcIndex]="1" (click)="openImageCarouselDialog()">
+          </div>
+          <div class="card2-item" appRotaryControl [rcIndex]="2"></div>
+          <div class="card2-item" appRotaryControl [rcIndex]="3"></div>
+          <div class="card2-item" appRotaryControl [rcIndex]="4"></div>
+        </div>
+      </app-expanding-card-content>
+    </app-expanding-card>
+  </div>
+
+  <div class="card no-expand-change" appRotaryControl #card3Group="appRotaryControl">
+    <app-expanding-card [expanded]="card3Group.isSelected">
+      <app-expanding-card-preview>
+        <div class="card-preview">3</div>
+      </app-expanding-card-preview>
+      <app-expanding-card-content>
+        <div class="card3-content">
+          <div class="card3-item" appRotaryControl></div>
+          <div class="card3-item" appRotaryControl></div>
+          <div class="card3-item" appRotaryControl></div>
+          <div class="card3-item" appRotaryControl></div>
+          <div class="card3-item" appRotaryControl></div>
+          <div class="card3-item" appRotaryControl></div>
+        </div>
+      </app-expanding-card-content>
+    </app-expanding-card>
+  </div>
+
+  <div class="card" appRotaryControl #card4Group="appRotaryControl">
+    <app-expanding-card [expanded]="card4Group.isSelected">
+      <app-expanding-card-preview>
+        <div class="card-preview">4</div>
+      </app-expanding-card-preview>
+      <app-expanding-card-content>
+        <div class="card4-content">
+          <div class="card4-item" appRotaryControl (click)="openTextPageDialog()">
+            The quick brown fox jumps over the lazy dog
+          </div>
+          <div class="card4-item" appRotaryControl>
+            The quick brown fox jumps over the lazy dog
+          </div>
+          <div class="card4-item" appRotaryControl>
+            The quick brown fox jumps over the lazy dog
+          </div>
+          <div class="card4-item" appRotaryControl>
+            The quick brown fox jumps over the lazy dog
+          </div>
+        </div>
+      </app-expanding-card-content>
+    </app-expanding-card>
+  </div>
+
+  <app-form-panel></app-form-panel>
+</div>

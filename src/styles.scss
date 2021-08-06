@@ -1,0 +1,68 @@
+// Needed for MatDialog
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.expanding-card {
+  width: 250px;
+  height: 100%;
+  transition: width 0.5s;
+  display: grid;
+  overflow-x: hidden;
+
+  &.expanded {
+    width: 600px;
+  }
+}
+
+.selectable {
+  cursor: pointer;
+}
+
+.card {
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  height: 500px;
+
+  &.no-expand-change {
+    .expanding-card {
+      width: 250px;
+      &.expanded {
+        width: 250px;
+      }
+    }
+  }
+}
+
+.card-preview {
+  font-size: 80px;
+  color: lightgrey;
+  font-family: 'Trebuchet MS', sans-serif;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+  height: 100%;
+}
+
+.close-dialog-button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+
+  background: lightgrey;
+  font-size: 20px;
+  padding: 10px;
+  border: 0;
+}
+
+mat-dialog-container {
+  position: relative;
+}
+
+.rc-focused {
+  box-shadow: 0 0 0 2px orange;
+
+  &:focus {
+    outline: none;
+  }
+}

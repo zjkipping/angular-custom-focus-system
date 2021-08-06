@@ -1,0 +1,10 @@
+<div @emptyEnter class="expanding-card" [class.expanded]="expanded">
+  <div @fadeIn (@fadeIn.done)="previewFadeOutDone = false" @fadeOut (@fadeOut.start)="previewFadeOutDone = false"
+    (@fadeOut.done)="previewFadeOutDone = true" class="expanding-card-preview" *ngIf="!expanded && contentFadeOutDone === true">
+    <ng-content select="app-expanding-card-preview"></ng-content>
+  </div>
+  <div @fadeIn (@fadeIn.done)="contentFadeOutDone = false" @fadeOut (@fadeOut.start)="contentFadeOutDone = false"
+    (@fadeOut.done)="contentFadeOutDone = true" class="expanding-card-content" *ngIf="expanded && previewFadeOutDone">
+    <ng-content select="app-expanding-card-content"></ng-content>
+  </div>
+</div>

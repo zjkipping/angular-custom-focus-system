@@ -1,0 +1,18 @@
+.image-carousel {
+  display: grid;
+  grid-template-columns: repeat(4, min-content);
+  column-gap: 50px;
+  padding: 50px;
+}
+
+.image {
+  height: 200px;
+  width: 400px;
+  background: green;
+  border-radius: 10px;
+}
+
+.close-dialog-button {
+  right: 10px;
+  top: 10px;
+}
